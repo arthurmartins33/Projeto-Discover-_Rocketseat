@@ -1,0 +1,183 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /*
+  background-image: url(./assets/bg-mobile.jpg); - caminho da imagem
+  background-repeat: no-repeat; - repetição da imagem
+  background-position: top center;- posição da imagem
+  background-size: cover; - área da imagem -> Cobrir toda área visível
+  display:none -> Tirar o elemento da tela
+  display: block -> Largura inteira da tela, joga o elemento para baixo.
+  Em elementos inline não é possível utilizar o "margin: auto".
+  padding -> Preenchimento interno da caixa
+  top -> Em cima
+  right -> Direita
+  bottom -> Em baixo
+  left -> Esquerda
+  em forma de relógio, sentido horário.
+  margin -> duas propriedades = 50 px (top e bottom), auto;(right e left);
+  três propriedades = 56 px(top), auto (right e left),  0px (bottom);
+  quatro propriedades = 56 px (top), auto (right), 0px (bottom), auto (left);
+  -> Não é necessário o uso de vírgula para separar as propriedades.
+  -> Usar hashtag no href do elemento a, faz com que ao apertar no link, ele não leve a lugar nenhum.
+  flex-direction = Alinhar os elementos um em baixo do outro.
+  gap = colocar um espaço entre os elementos.
+  ul = pai, li = filho -> O filho vai receber os mesmos styles do pai.
+  rgba -> r = red, g = green, b = blue, a = alfa (transparência). 0 -> preto absoluto.
+  alfa -> vai de 0 até 1, sendo 1 o branco absoluto.
+  ícones -> Ion Icons
+  */
+
+  /*Background: color image repeat position/size -> Tudo em uma única propriedade (atalho) */ 
+  
+}
+
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color:  rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/MoonStars.svg); 
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color:  rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/Sun.svg);
+}
+
+
+body  {
+  background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-color);
+}
+
+
+#container {
+  width: 360px; /* Largura*/
+  margin: 56px auto 0px auto;
+  padding: 0 24px;
+}
+
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+width: 112px;
+}
+
+#profile p {
+font-weight: 500; /*Peso do texto*/
+line-height: 24px; /* Altura da Linha*/
+margin-top: 8px;
+}
+
+#switch {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(stroke-color);
+  backdrop-filter: blur (4px);
+  -webkit-backdrop-filter: blur (4px);
+  border-radius: 9999px;
+}
+
+/* links */
+
+ul {
+  list-style: none; /* Tirar o estilo da lista não ordenada.*/
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+
+}
+
+ul li a {
+  display: flex; /* Faz com que o elemento a tome toda a largura do container.*/
+  justify-content: center; /*Alinhar o conteúdo para o centro.*/
+  align-items: center; /* Alinhar os items ao centro.*/
+  padding: 16px 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px; /* Arredondar Bordas.*/
+  backdrop-filter: blur(4px); /* Embaçar Elemento.*/
+  -webkit-backdrop-filter: blur(4px);
+  text-decoration: none; /*Tirar linha que estava debaixo do texto.*/
+  font-weight: 500; /*Altura da fonte de texto.*/
+  transition: background 0.2s;
+}
+
+ul li a:hover { 
+ background: var(--surface-color-hover);
+ border: 1.5px solid var(--text-color);
+}
+
+/*social-links*/
+
+#social-links {
+display:flex;
+justify-content: center; /* Alinhar os ícones ao centro*/
+padding: 24px 0; /*Espaço em cima e em baixo (24) e dos lados (0).*/
+font-size: 24px; /* Mudar tamanho dos ícones dentro da "social-links"*/
+}
+
+#social-links a {
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 16px;
+border-radius: 50%;
+transition: background 0.2s;
+}
+
+
+#social-links a:hover {
+ background:var(--highlight-color);
+}
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
